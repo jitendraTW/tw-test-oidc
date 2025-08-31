@@ -1,10 +1,17 @@
+name: GCP OIDC Auth Test
+
+on:
+  push:
+    branches: [main]
+
 permissions:
-  id-token: write
+  id-token: write  # Required for OIDC
   contents: read
 
 jobs:
-  deploy:
+  auth-gcp:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,6 +23,12 @@ jobs:
           workload_identity_provider: "projects/202129374367/locations/global/workloadIdentityPools/github-pool/providers/gitworkexp"
           service_account: "github-deployer@tw-gits-backstage-sandbox-02ad.iam.gserviceaccount.com"
 
-      - name: Deploy to Cloud Run
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: 202129374367
+
+      - name: Test gcloud authentication
         run: |
-          gcloud run deploy ...
+          gcloud auth list
+          gcloud projects list
