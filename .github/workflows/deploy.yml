@@ -19,11 +19,9 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          token_format: "id_token"
           workload_identity_provider: "projects/202129374367/locations/global/workloadIdentityPools/gitworkexp/providers/gitworkexp"
           service_account: "github-deployer@tw-gits-backstage-sandbox-02ad.iam.gserviceaccount.com"
-          audience: "//iam.googleapis.com/projects/202129374367/locations/global/workloadIdentityPools/gitworkexp/providers/gitworkexp"
-
+    
       - name: Set up gcloud CLI
         uses: google-github-actions/setup-gcloud@v1
         with:
