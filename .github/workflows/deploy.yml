@@ -26,7 +26,7 @@ jobs:
       - name: Set up gcloud CLI
         uses: google-github-actions/setup-gcloud@v1
         with:
-          project_id: 202129374367
+          project_id: tw-gits-backstage-sandbox-02ad
 
       - name: Test gcloud authentication
         run: |
