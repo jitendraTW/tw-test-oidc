@@ -20,7 +20,7 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           token_format: "id_token"
-          workload_identity_provider: "projects/202129374367/locations/global/workloadIdentityPools/github-pool/providers/gitworkexp"
+          workload_identity_provider: "projects/202129374367/locations/global/workloadIdentityPools/gitworkexp/providers/gitworkexp"
           service_account: "github-deployer@tw-gits-backstage-sandbox-02ad.iam.gserviceaccount.com"
 
       - name: Set up gcloud CLI
